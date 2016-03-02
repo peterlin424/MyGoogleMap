@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,57 +12,95 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView"
+        android:layout_height="25dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14dp" />
+        android:text="檢查 GooglePlayServices"
+        android:id="@+id/textView2"
+        android:textSize="14dp"
+        android:paddingRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="結果："
+        android:id="@+id/tv_result"
+        android:layout_alignParentStart="true"
+        android:textSize="14dp"
+        android:layout_below="@+id/textView2" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Check"
+        android:id="@+id/bt_check"
+        android:textSize="14dp"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toEndOf="@+id/et_address" />
+
+    <fragment
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/map"
+        android:layout_below="@+id/tv_result"
+        map:uiRotateGestures="true"
+        map:uiScrollGestures="true"
+        map:uiTiltGestures="true"
+        map:uiZoomControls="true"
+        map:uiZoomGestures="true"/>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="me"
+        android:id="@+id/bt_me"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:id="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="檢查 GooglePlayServices"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/textView"
-            android:textSize="14dp"
-            android:paddingRight="20dp" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Check"
-            android:id="@+id/bt_check"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
-            android:textSize="14dp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="結果："
-        android:id="@+id/tv_result"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="10dp"
-        android:textSize="14dp" />
-
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/fragment"
+        android:layout_height="60dp"
         android:layout_below="@+id/tv_result"
-        android:layout_alignParentStart="true" />
+        android:background="#88ffffff"
+        android:layout_alignLeft="@+id/map"></LinearLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/et_address"
+        android:layout_alignTop="@+id/map"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/bt_sreach"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:id="@+id/bt_add"
+        android:layout_alignTop="@+id/map"
+        android:layout_alignEnd="@+id/map"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="s"
+        android:id="@+id/bt_sreach"
+        android:layout_alignBottom="@+id/bt_add"
+        android:layout_toStartOf="@+id/bt_add"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="-"
+        android:id="@+id/bt_remove"
+        android:layout_alignTop="@+id/bt_me"
+        android:layout_alignStart="@+id/et_address" />
 
 </RelativeLayout>
